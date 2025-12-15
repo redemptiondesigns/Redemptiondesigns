@@ -1,316 +1,346 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Midrand Plumbing Co. — 24/7 Premium Plumbing Services</title>
+  <meta name="description" content="Midrand Plumbing Co. — Fast, reliable 24/7 emergency plumbers. Burst pipes, blocked drains, and luxury installations." />
+  <meta name="theme-color" content="#0b6b6b">
 
-<title>Midrand Plumbing Co. — 24/7 Emergency Plumbers in Midrand, SA</title>
-<meta name="description" content="Midrand Plumbing Co. — Fast, reliable 24/7 emergency plumbers in Midrand, Gauteng. Burst pipes, blocked drains, geyser repairs, and installations." />
-<meta name="theme-color" content="#0b6b6b">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent: #0b6b6b;       /* Deep Teal */
+      --accent-dark: #074a4a;  /* Darker Teal for hover */
+      --accent-light: #0f9b90; /* Brighter Teal for highlights */
+      --text-dark: #1e293b;    /* Slate Black */
+      --text-gray: #64748b;    /* Slate Gray */
+      --bg-light: #f8fafc;     /* Very light blue-gray bg */
+      --white: #ffffff;
+      
+      --radius: 16px;          /* More modern, softer corners */
+      --shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+      --container: 1100px;
+      
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+    }
 
-<style>
-/* ==============================
-   ROOT & BASE
-============================== */
-:root{
-  --accent:#0b6b6b;
-  --accent-light:#0f9b90;
-  --muted:#6b7280;
-  --bg:#f8fafb;
-  --card:#ffffff;
-  --heading:#1e293b;
-  --radius:12px;
-  --max-width:1100px;
-  --shadow:0 10px 30px rgba(11,107,107,.12);
-  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-}
+    /* Reset & Base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg-light);color:var(--text-dark);line-height:1.6;font-size:16px}
+    img{max-width:100%;height:auto;display:block}
+    h1,h2,h3{line-height:1.1;letter-spacing:-0.02em;color:var(--text-dark)}
+    
+    .container{max-width:var(--container);margin:0 auto;padding:0 24px}
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--bg);
-  color:#0f1724;
-  line-height:1.6;
-}
+    /* Navigation */
+    .site-header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,0.05);
+      padding:16px 0;
+    }
+    .header-inner{display:flex;justify-content:space-between;align-items:center}
+    .logo{font-weight:800;font-size:1.4rem;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:8px}
+    .nav{display:none} /* Mobile default */
+    
+    @media(min-width: 768px){
+      .nav{display:flex;gap:32px;align-items:center}
+      .nav a{text-decoration:none;color:var(--text-dark);font-weight:500;font-size:0.95rem;transition:color 0.2s}
+      .nav a:hover{color:var(--accent)}
+      .nav-btn{background:var(--accent);color:var(--white)!important;padding:10px 24px;border-radius:99px;transition:transform 0.2s}
+      .nav-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(11,107,107,0.25)}
+    }
 
-/* ==============================
-   UTILITIES
-============================== */
-.container{max-width:var(--max-width);margin:auto;padding:0 20px}
-.small{font-size:.85rem;color:var(--muted)}
-.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
-a{text-decoration:none;color:inherit}
+    /* HERO SECTION */
+    .hero{
+      position:relative;
+      /* Image: Modern Bathroom/Water Faucet from Unsplash */
+      background-image: linear-gradient(135deg, rgba(11, 107, 107, 0.92) 0%, rgba(15, 155, 144, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1584622050111-993a426fbf0a?auto=format&fit=crop&q=80&w=1920');
+      background-size:cover;
+      background-position:center;
+      color:var(--white);
+      padding: 80px 0 100px;
+    }
+    
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+    
+    .hero-content h1{color:var(--white);font-size:2.5rem;font-weight:800;margin-bottom:20px}
+    .hero-content p{font-size:1.1rem;color:rgba(255,255,255,0.9);margin-bottom:32px;max-width:500px}
+    
+    .cta-group{display:flex;flex-direction:column;gap:12px}
+    .btn{
+      display:inline-flex;justify-content:center;align-items:center;
+      padding:16px 32px;border-radius:12px;
+      font-weight:700;text-decoration:none;transition:all 0.3s;
+      border:none;cursor:pointer;font-size:1rem;
+    }
+    .btn-primary{background:var(--white);color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2)}
+    
+    .btn-outline{border:2px solid rgba(255,255,255,0.4);color:var(--white)}
+    .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--white)}
 
-/* ==============================
-   HEADER & NAV
-============================== */
-.site-header{
-  position:sticky;
-  top:0;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(0,0,0,.06);
-  z-index:50;
-}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--accent)}
-.logo svg{width:28px;height:28px;fill:var(--accent)}
+    /* Glass Card in Hero */
+    .glass-card{
+      background:rgba(255, 255, 255, 0.15);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.2);
+      padding:32px;
+      border-radius:var(--radius);
+      color:var(--white);
+    }
+    .glass-card h3{color:var(--white);margin-bottom:16px}
+    .feature-row{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
+    .feature-row svg{flex-shrink:0;color:#86efac} /* Light green check */
 
-.nav{
-  display:none;
-  flex-direction:column;
-  gap:14px;
-  position:absolute;
-  top:100%;
-  right:20px;
-  background:#fff;
-  padding:16px;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-}
-.nav.open{display:flex}
-.nav a{font-weight:600}
-.nav .cta{color:var(--accent)}
+    /* Services Section */
+    .section{padding:80px 0}
+    .text-center{text-align:center;max-width:700px;margin:0 auto 56px}
+    .subtitle{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:0.85rem;letter-spacing:1px;margin-bottom:8px;display:block}
+    
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px}
+    .service-card{
+      background:var(--white);padding:32px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      transition:transform 0.3s ease;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .service-card:hover{transform:translateY(-5px)}
+    .icon-box{
+      width:56px;height:56px;background:rgba(11,107,107,0.1);
+      color:var(--accent);border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:20px;
+    }
+    .service-card h3{margin-bottom:12px;font-size:1.25rem}
+    .service-card p{color:var(--text-gray);font-size:0.95rem}
 
-#nav-toggle{
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  padding:10px 14px;
-  border-radius:10px;
-  cursor:pointer;
-}
+    /* About Section with Image */
+    .about-section{background:var(--white)}
+    .about-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+    
+    .about-img-wrapper{
+      position:relative;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    }
+    .about-img{
+      width:100%;height:100%;object-fit:cover;min-height:400px;
+      transition:transform 0.5s;
+    }
+    .about-img-wrapper:hover .about-img{transform:scale(1.03)}
+    
+    .stats-row{display:flex;gap:32px;margin-top:32px;padding-top:32px;border-top:1px solid #e2e8f0}
+    .stat h4{font-size:2rem;color:var(--accent);margin-bottom:4px}
+    .stat span{font-size:0.9rem;color:var(--text-gray);font-weight:600}
 
-/* ==============================
-   HERO
-============================== */
-.hero{
-  position:relative;
-  padding:48px 0;
-  display:grid;
-  gap:32px;
-  color:#fff;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,var(--accent),var(--accent-light));
-  z-index:-1;
-}
-.kicker{
-  background:var(--accent-light);
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:.75rem;
-  font-weight:700;
-  display:inline-block;
-}
-.hero h1{font-size:2.3rem;margin:.6em 0}
-.hero .lead{opacity:.95}
+    /* Contact Section */
+    .contact-form{
+      background:var(--white);padding:40px;border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+    .form-group{margin-bottom:20px}
+    .form-label{display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem}
+    .form-input{
+      width:100%;padding:14px;border-radius:10px;
+      border:1px solid #e2e8f0;background:#f8fafc;
+      font-family:inherit;font-size:1rem;
+    }
+    .form-input:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(11,107,107,0.1)}
+    
+    /* YOUR FIX: TextArea Styling */
+    textarea.form-input{resize:vertical;min-height:120px}
 
-.hero-ctas{display:flex;flex-direction:column;gap:12px}
-.btn{
-  padding:14px 20px;
-  border-radius:12px;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  justify-content:center;
-}
-.btn-primary{
-  background:var(--accent-light);
-  color:#fff;
-}
-.btn-primary:hover{filter:brightness(1.05)}
-.btn-ghost{
-  border:2px solid rgba(255,255,255,.4);
-  color:#fff;
-}
-
-/* ==============================
-   STATS
-============================== */
-.meta{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-.stat{
-  background:rgba(255,255,255,.15);
-  padding:12px;
-  border-left:4px solid #fff;
-}
-.stat b{display:block}
-
-/* ==============================
-   SERVICES
-============================== */
-section{padding:56px 0}
-.section-header{text-align:center;margin-bottom:32px}
-.services-grid{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-}
-.service{
-  padding:24px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 6px 16px rgba(0,0,0,.08);
-  transition:.3s;
-}
-.service:hover{transform:translateY(-4px)}
-.service svg{width:28px;height:28px;color:var(--accent)}
-
-/* ==============================
-   ABOUT
-============================== */
-.about-grid{
-  display:grid;
-  gap:24px;
-  padding:32px;
-}
-
-/* ==============================
-   TESTIMONIALS
-============================== */
-.testimonials{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-}
-.testimonial{
-  background:#fff;
-  padding:24px;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-  font-style:italic;
-}
-.testimonial b{display:block;margin-top:10px;font-style:normal}
-
-/* ==============================
-   CONTACT
-============================== */
-.contact-grid{display:grid;gap:32px}
-input,textarea{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #d1d5db;
-  margin-bottom:12px;
-}
-.form-actions{display:flex;flex-direction:column;gap:12px}
-
-/* ==============================
-   FOOTER
-============================== */
-footer{
-  background:#fff;
-  border-top:1px solid rgba(0,0,0,.06);
-  padding:24px 0;
-}
-.footer-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  gap:12px;
-}
-
-/* ==============================
-   ANIMATIONS
-============================== */
-.fade-up{opacity:0;transform:translateY(20px)}
-.fade-up.reveal{
-  opacity:1;
-  transform:none;
-  transition:.6s ease;
-}
-
-/* ==============================
-   DESKTOP
-============================== */
-@media(min-width:980px){
-  .nav{display:flex;position:static;flex-direction:row;background:none;box-shadow:none;padding:0}
-  #nav-toggle{display:none}
-  .hero{grid-template-columns:1fr 400px;padding:90px 0}
-  .hero-ctas{flex-direction:row}
-  .contact-grid{grid-template-columns:1fr 380px}
-}
-</style>
+    /* Footer */
+    footer{background:#111827;color:rgba(255,255,255,0.6);padding:60px 0 30px}
+    .footer-content{display:grid;gap:40px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:40px;margin-bottom:24px}
+    .footer-col h4{color:var(--white);margin-bottom:20px}
+    
+    /* Responsive Desktop */
+    @media(min-width: 992px){
+      .hero-grid{grid-template-columns:1.2fr 0.8fr;gap:80px}
+      .cta-group{flex-direction:row}
+      .about-grid{grid-template-columns:1fr 1fr}
+      .footer-content{grid-template-columns:1fr 1fr 1fr}
+      .hero{padding:120px 0 140px}
+      .hero-content h1{font-size:3.5rem}
+    }
+  </style>
 </head>
-
 <body>
-<!-- ==============================
-     SCHEMA
-============================== -->
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"Plumber",
- "name":"Midrand Plumbing Co.",
- "telephone":"+27825550123",
- "address":{"@type":"PostalAddress","addressLocality":"Midrand","addressRegion":"Gauteng","addressCountry":"ZA"},
- "openingHours":"Mo-Su 00:00-23:59"
-}
-</script>
 
-<!-- ==============================
-     HEADER
-============================== -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="logo" href="#hero">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-      Midrand Plumbing Co.
-    </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.04.38 2.05.76 3.02a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.97.38 1.98.64 3.02.76A2 2 0 0 1 22 16.92z"/></svg>
+        Midrand Plumbing
+      </a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="tel:+27825550123" class="nav-btn">Call +27 82 555 0123</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav id="main-nav" class="nav">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#testimonials">Reviews</a>
-      <a href="#contact" class="cta">Contact</a>
-    </nav>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div style="color:#86efac;font-weight:700;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase">24/7 Emergency Service</div>
+        <h1>Plumbing Problems Solved. Fast.</h1>
+        <p>From burst pipes to luxury bathroom renovations, we deliver SABS-approved workmanship with zero hidden fees. We are Midrand's most trusted plumbing team.</p>
+        <div class="cta-group">
+          <a href="tel:+27825550123" class="btn btn-primary">Call Now: 082 555 0123</a>
+          <a href="#contact" class="btn btn-outline">Get a Quote</a>
+        </div>
+      </div>
+      
+      <div class="glass-card">
+        <h3>Why Choose Us?</h3>
+        <div class="feature-row">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <div><strong>60 Minute Response</strong><div style="font-size:0.85rem;opacity:0.8">For all Midrand emergencies</div></div>
+        </div>
+        <div class="feature-row">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <div><strong>Fixed Upfront Pricing</strong><div style="font-size:0.85rem;opacity:0.8">No surprises on the invoice</div></div>
+        </div>
+        <div class="feature-row">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <div><strong>Licensed & Insured</strong><div style="font-size:0.85rem;opacity:0.8">PIRB Registered Plumbers</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <button id="nav-toggle">Menu</button>
-  </div>
-</header>
+  <section id="services" class="section">
+    <div class="container">
+      <div class="text-center">
+        <span class="subtitle">Our Expertise</span>
+        <h2>Comprehensive Plumbing Solutions</h2>
+        <p style="color:var(--text-gray)">We handle everything from small leaks to major commercial installations with the same level of care.</p>
+      </div>
 
-<!-- ==============================
-     MAIN CONTENT (UNCHANGED)
-============================== -->
-<!-- YOUR ENTIRE MAIN CONTENT IS PRESERVED HERE -->
-<!-- (Hero, Services, About, Testimonials, Contact) -->
-<!-- No sections removed or altered -->
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.74 5.88a5.9 5.9 0 0 1 1.76 4.19A5.92 5.92 0 0 1 13.58 18H12v4h-1v-4H10.5a6 6 0 0 1-4.24-10.24L12 2.69z"/></svg></div>
+          <h3>Blocked Drains</h3>
+          <p>High-pressure jetting and CCTV camera inspections to clear drains permanently.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <h3>Geyser Repair</h3>
+          <p>Thermostat replacements, element repairs, and new energy-efficient installations.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.04.38 2.05.76 3.02a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.97.38 1.98.64 3.02.76A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h3>Emergency Leaks</h3>
+          <p>24/7 Rapid response for burst pipes, flooding, and undetectable water leaks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ==============================
-     FOOTER
-============================== -->
-<footer>
-  <div class="container footer-grid">
-    <div>© <strong>Midrand Plumbing Co.</strong> — Registered & Insured</div>
-    <div class="small">Designed for speed & conversions</div>
-  </div>
-</footer>
+  <section id="about" class="section about-section">
+    <div class="container about-grid">
+      <div class="about-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=800" alt="Professional Plumber with Tools" class="about-img">
+      </div>
+      <div>
+        <span class="subtitle">About Our Team</span>
+        <h2>Local Experts You Can Trust</h2>
+        <p style="margin-bottom:24px;color:var(--text-gray)">
+          Midrand Plumbing Co. isn't just a business; it's a team of dedicated tradesmen who take pride in their craft. We understand that letting a stranger into your home requires trust.
+        </p>
+        <p style="margin-bottom:24px;color:var(--text-gray)">
+          That's why all our technicians are background-checked, uniformed, and carry ID. We treat your home with respect, wearing boot covers and cleaning up after every job.
+        </p>
+        
+        <div class="stats-row">
+          <div class="stat">
+            <h4>15+</h4>
+            <span>Years Experience</span>
+          </div>
+          <div class="stat">
+            <h4>5k+</h4>
+            <span>Jobs Completed</span>
+          </div>
+          <div class="stat">
+            <h4>4.9</h4>
+            <span>Star Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ==============================
-     JS (UNCHANGED)
-============================== -->
-<script>
-const nav=document.getElementById("main-nav");
-const btn=document.getElementById("nav-toggle");
-btn.addEventListener("click",()=>nav.classList.toggle("open"));
+  <section id="contact" class="section" style="background:var(--bg-light)">
+    <div class="container">
+      <div class="text-center">
+        <h2>Request a Service</h2>
+        <p style="color:var(--text-gray)">Fill in the form below or call us directly for immediate assistance.</p>
+      </div>
+      
+      <div style="max-width:600px;margin:0 auto">
+        <form class="contact-form" action="https://formspree.io/f/yourFormId" method="POST">
+          
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+          </div>
 
-const obs=new IntersectionObserver(e=>{
- e.forEach(x=>{
-  if(x.isIntersecting){x.target.classList.add("reveal");obs.unobserve(x.target)}
- })
-},{threshold:.15});
-document.querySelectorAll(".fade-up").forEach(el=>obs.observe(el));
-</script>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="082 123 4567" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">How can we help?</label>
+            <textarea id="message" name="message" class="form-input" rows="4" placeholder="I have a leaking pipe..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Midrand Plumbing</h4>
+          <p>Your local 24/7 specialists for all residential and commercial plumbing needs.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Midrand, Gauteng<br>Phone: 082 555 0123<br>Email: help@midrandplumbing.co.za</p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Monday - Sunday: 24 Hours<br>Public Holidays: Open</p>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:0.85rem;opacity:0.5">
+        &copy; 2024 Midrand Plumbing Co. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
+
